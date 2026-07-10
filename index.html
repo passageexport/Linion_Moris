@@ -2484,10 +2484,10 @@ async function jnSubmit(){
   // gather the rest of the form for delivery
   const path=(document.querySelector('input[name="jnpath"]:checked')||{}).value||'';
   const rel=(document.querySelector('input[name="jnrel"]:checked')||{}).value||'';
-  const const_=(document.getElementById('jn_const')||{}).value||'';
-  const town=(document.getElementById('jn_town')||{}).value||'';
-  const country=(document.getElementById('jn_diacountry')||{}).value||'';
-  const exp=(document.getElementById('jn_st6')||{}).value||(document.querySelector('#jn-form textarea')||{}).value||'';
+  const const_=(document.querySelector('#jn-const-fq .jn-sel')||{}).value||'';
+  const town=(document.querySelector('#jn-town-fq .jn-sel, #jn-town-fq input, #jn_town')||{}).value||'';
+  const country=(document.querySelector('#jn-country-fq .jn-sel')||{}).value||'';
+  const exp=(document.querySelector('#jn-form .jn-ta')||{}).value||'';
   if(btn){ btn.disabled=true; btn.style.opacity='0.6'; }
   const ok=await w3send('New join / membership interest — '+(name||'someone'),{
     form:'Join Linion Moris', name:name, email:email||'(none)', phone:phone||'(none)',
